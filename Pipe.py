@@ -28,7 +28,7 @@ class Pipe:
             self.x = self.start_x
             self.set_ys()
 
-        if self.x < 200 and not self.passed:
+        if self.x < 200 - self.img.get_width() and not self.passed:
             self.passed = True
             return 1
         return 0
@@ -48,4 +48,4 @@ class Pipe:
         point_bottom = bird_mask.overlap(mask_bottom, offset_bottom)
         point_top = bird_mask.overlap(mask_top, offset_top)
 
-        return point_bottom or point_top
+        return point_bottom and len(point_bottom) > 1 or point_top and len(point_top) > 1
