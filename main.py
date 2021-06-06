@@ -1,5 +1,5 @@
 import os
-import pickle
+# import pickle
 
 import neat
 import pygame as pg
@@ -140,11 +140,13 @@ def main(genomes, config, score=0):
         draw_window(DISPLAY_SURF, ground, birds, pipes, score, GEN, len(birds))
 
         # should be a winner already
+        '''
         if score > 49:
             for g in ge:
                 g.fitness = calculate_fitness(score, lifespan)
             pickle.dump(nets[0], open("winner.pickle", "wb"))
             break
+        '''
 
 
 def run_neat(neat_config_path):
